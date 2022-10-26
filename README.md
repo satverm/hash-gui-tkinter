@@ -4,6 +4,7 @@ Graphical Interface for storing text by hashing
 Any text or data can be converted to a hash using secure hash algorithms like sha256 or sha512.
 We can generate hashes by using the hashlib library of python. 
 For a user interface tkinter module of python can be used.
+## update: The program is now functional as ver 1.0
 # Storing only few digits of the 64 digits of the hex code
   Storing only few digits of the hash code of any input is a simple and easy way to remember passwords or some data without the need to actually storing the passwords. We can use this code to check if the input we used for something generates the same hash initial digits.
   
