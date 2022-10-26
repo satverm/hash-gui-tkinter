@@ -29,11 +29,14 @@ def get_hsh_cmd():
 	hsh_confirm = input_confirm_entry.get()
 	if hsh_input == hsh_confirm:
 		hsh_output = get_sha256(hsh_input)
-		lbl2 = tk.Label(root, text= hsh_output)
-		lbl2.pack()
+		# lbl2 = tk.Label(root, text= hsh_output)
+		# lbl2.pack()
+		input_hsh_lbl.configure(text=hsh_output)
 	else:
-		lbl3= tk.Label(root, text= "The inputs don't match")
-		lbl3.pack()
+		# lbl3= tk.Label(root, text= "The inputs don't match")
+		# lbl3.pack()
+		input_hsh_lbl.configure(text="Inputs dont match!! Retry..")
+
 	input_entry.delete(0, tk.END) # we can use END without tk in case we import * from tkinter
 	input_confirm_entry.delete(0, tk.END)
 
@@ -44,11 +47,12 @@ def salted_hsh_cmd():
 	salt_hsh=   get_sha256(pass_phrase_entry.get())
 	salted_ip = ip_text_hsh + salt_hsh
 	hsh_salted_ip = get_sha256(salted_ip)
-	lbl4= tk.Label(root, text= hsh_salted_ip)
-	lbl4.pack()
+	# lbl4= tk.Label(root, text= hsh_salted_ip)
+	# lbl4.pack()
 	input_entry.delete(0, tk.END)
 	input_confirm_entry.delete(0, tk.END)
 	pass_phrase_entry.delete(0,tk.END)
+	salted_hsh_lbl.configure(text=hsh_salted_ip)
 
 def get_smallest_hash():
 	pass
@@ -68,14 +72,23 @@ label3.pack(padx=10,pady=(0,5))
 input_confirm_entry= tk.Entry(root, show= '*')
 input_confirm_entry.pack(pady=(0,10))
 
+
 btn1= tk.Button(root, text="Click to get  hash of input ", command= get_hsh_cmd)
 btn1.pack(padx=5,pady=(0,10))
+
+input_hsh_lbl= tk.Label(root, text="Hash of input")
+input_hsh_lbl.pack(pady=(0,20))
+
 label4= tk.Label(root, text="Add a passphrase or pin (salt) for more security")
 label4.pack(pady=(10,0))
+
 pass_phrase_entry= tk.Entry(root, show= '*')
 pass_phrase_entry.pack(pady=(5,10))
+
 btn2 = tk.Button(root, text= 'Click to get hash of hashed input+hashed passphrase', command= salted_hsh_cmd)
 btn2.pack(padx=5,pady=(0,5))
 
+salted_hsh_lbl= tk.Label(root, text="Hash (hashed input + hashed passphrase)")
+salted_hsh_lbl.pack(pady=(0,20))
 
 root.mainloop()
