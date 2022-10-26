@@ -13,7 +13,7 @@ import tkinter as tk
 import hashlib as hs
 root = tk.Tk()
 root.title("Hash Generator")
-root.geometry('1000x1000')
+root.geometry('600x400')
 
 # reusable hash function
 def get_sha256(input_str= None):
@@ -22,7 +22,7 @@ def get_sha256(input_str= None):
 	hash_op = hs.sha256(input_str.encode('utf-8')).hexdigest()
 	return(hash_op)
 
-def get_hash():
+def get_hsh_cmd():
 	hsh_input = e1.get()
 	hsh_confirm = e2.get()
 	if hsh_input == hsh_confirm:
@@ -33,7 +33,7 @@ def get_hash():
 		lbl3= tk.Label(root, text= "The inputs don't match")
 		lbl3.pack()
 		
-def get_salted_hash():
+def salted_hsh_cmd():
 	ip_text_hsh = get_sha256(e1.get())
 	salt_hsh=   get_sha256(e_salt.get())
 	salted_ip = ip_text_hsh + salt_hsh
@@ -44,27 +44,27 @@ def get_salted_hash():
 def get_smallest_hash():
 	pass
 	
-label1 = tk.Label(root, text="Lets have fun with hashing", padx=20, pady=20)
-label1.pack()
+label1 = tk.Label(root, text="Lets have fun with hashing")
+label1.pack(padx=10,pady=(10,20))
 label2=tk.Label(root, text="Enter the input to get hash")
-label2.pack()
+label2.pack(padx=10,pady=(10,5))
 e1= tk.Entry(root,  show= '*')
-e1.pack(pady=40)
+e1.pack(pady=(0,20))
 
 label3 = tk.Label(root, text="Enter the input again to confirm:")
-label3.pack()
+label3.pack(padx=10,pady=(0,5))
 
 e2= tk.Entry(root, show= '*')
-e2.pack(pady=40)
+e2.pack(pady=(0,10))
 
-btn1= tk.Button(root, text="Click to get  hash of input ", padx=20, pady=20,command= get_hash)
-btn1.pack()
-label4= tk.Label(root, text="Add a passphrase or pin (salt) for more security", pady=40)
-label4.pack()
-e_salt= tk.Entry(root, show='*')
-e_salt.pack(pady=40)
-btn2 = tk.Button(root, text= 'Click to get hash of hashed input+hashed passphrase )' , command= get_salted_hash)
-btn2.pack()
+btn1= tk.Button(root, text="Click to get  hash of input ", command= get_hsh_cmd)
+btn1.pack(padx=5,pady=(0,10))
+label4= tk.Label(root, text="Add a passphrase or pin (salt) for more security")
+label4.pack(pady=(10,0))
+e_salt= tk.Entry(root, show= '*')
+e_salt.pack(pady=(5,10))
+btn2 = tk.Button(root, text= 'Click to get hash of hashed input+hashed passphrase )', command= salted_hsh_cmd)
+btn2.pack(padx=5,pady=(0,5))
 
 
 root.mainloop()
