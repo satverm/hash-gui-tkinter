@@ -70,7 +70,7 @@ label4= tk.Label(root, text="Add a passphrase or pin (salt) for more security")
 label4.pack(pady=(10,0))
 e_salt= tk.Entry(root, show= '*')
 e_salt.pack(pady=(5,10))
-btn2 = tk.Button(root, text= 'Click to get hash of hashed input+hashed passphrase )', command= salted_hsh_cmd)
+btn2 = tk.Button(root, text= 'Click to get hash of hashed input+hashed passphrase', command= salted_hsh_cmd)
 btn2.pack(padx=5,pady=(0,5))
 
 
