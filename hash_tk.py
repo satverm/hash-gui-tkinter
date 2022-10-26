@@ -32,6 +32,10 @@ def get_hsh_cmd():
 	else:
 		lbl3= tk.Label(root, text= "The inputs don't match")
 		lbl3.pack()
+	e1.delete(0, tk.END) # we can use END without tk in case we import * from tkinter
+	e2.delete(0, tk.END)
+
+		
 		
 def salted_hsh_cmd():
 	ip_text_hsh = get_sha256(e1.get())
@@ -40,7 +44,10 @@ def salted_hsh_cmd():
 	hsh_salted_ip = get_sha256(salted_ip)
 	lbl4= tk.Label(root, text= hsh_salted_ip)
 	lbl4.pack()
-	
+	e1.delete(0, tk.END)
+	e2.delete(0, tk.END)
+	e_salt.delete(0,tk.END)
+
 def get_smallest_hash():
 	pass
 	
