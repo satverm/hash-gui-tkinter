@@ -9,6 +9,7 @@ You can even modify the code to get so many variations for hashing to have even 
 get_smallest_hash function used to store the characters of your password using the same basic concept and you can get back the password or input uaing the same passphrase you used to store them.
 
 '''
+ver = "1.0"
 import tkinter as tk
 import hashlib as hs
 
