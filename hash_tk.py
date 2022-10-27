@@ -77,7 +77,7 @@ input_confirm_entry.pack(pady=(0,10))
 btn1= tk.Button(root, text="Click to get  hash of input ", command= get_hsh_cmd)
 btn1.pack(padx=5,pady=(0,10))
 
-input_hsh_lbl= tk.Label(root, text="Hash of input")
+input_hsh_lbl= tk.Label(root, text="Hash of input",font=("Arial",12))
 input_hsh_lbl.pack(pady=(0,20))
 
 label4= tk.Label(root, text="Add a passphrase or pin (salt) for more security")
@@ -89,7 +89,7 @@ pass_phrase_entry.pack(pady=(5,10))
 btn2 = tk.Button(root, text= 'Click to get hash of hashed input+hashed passphrase', command= salted_hsh_cmd)
 btn2.pack(padx=5,pady=(0,5))
 
-salted_hsh_lbl= tk.Label(root, text="Hash (hashed input + hashed passphrase)")
+salted_hsh_lbl= tk.Label(root, text="Hash (hashed input + hashed passphrase)", font=("Arial",12))
 salted_hsh_lbl.pack(pady=(0,20))
 
 root.mainloop()
